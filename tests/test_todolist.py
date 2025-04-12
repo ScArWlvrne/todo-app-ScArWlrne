@@ -12,6 +12,12 @@ sys.path.append(str(Path(__file__).parent.parent))
 from typing import List
 from todolist import Todo
 
+def test_datetime_imported():
+    try:
+        assert 'datetime' in globals() or 'datetime' in locals()
+    except ImportError:
+        assert False, "datetime not imported"
+
 
 def test_add_task() -> None:
     """Test the add_task method of the Todo class.
